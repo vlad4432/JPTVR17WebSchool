@@ -5,9 +5,12 @@
  */
 package controller;
 
+import session.PupilFacade;
 import entity.Pupil;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
+import static javax.enterprise.deploy.shared.ModuleType.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "WebController", urlPatterns = {"/WebController"})
 public class WebController extends HttpServlet {
+@EJB PupilFacade pupilFacade;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,8 +48,10 @@ public class WebController extends HttpServlet {
                 String name = request.getParameter("name");
                 String surename = request.getParameter("surename");
                 String status = request.getParameter("status");
-                Pupil puipl = new Pupil(name, surename, status);
-                PupilFacade.create(pupil);
+                Pupil pupil = new Pupil(name, surename, status);
+                pupilFacade.create(pupil);
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+                
                 break;
         }
     }
