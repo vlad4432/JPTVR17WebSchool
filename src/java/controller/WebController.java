@@ -21,38 +21,32 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-@WebServlet(name = "WebController", urlPatterns = {"/WebController"})
+@WebServlet(name = "WebController", urlPatterns = {
+         "/showAddPupil",
+         "/createPupil",
+         "/showListPupil",
+})
 public class WebController extends HttpServlet {
 @EJB PupilFacade pupilFacade;
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         String path = request.getServletPath();
         switch (path) {
-            case "/addPupil":
+            case "/showAddPupil":
                 request.getRequestDispatcher("/showAddPupil.jsp")
                         .forward(request, response);
                 break;
-            case "/ListPupil":
+            case "/createPupil":
                 String name = request.getParameter("name");
                 String surename = request.getParameter("surename");
                 String status = request.getParameter("status");
                 Pupil pupil = new Pupil(name, surename, status);
                 pupilFacade.create(pupil);
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
-                
                 break;
+                
         }
     }
 

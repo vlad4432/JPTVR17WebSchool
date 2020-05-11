@@ -13,6 +13,9 @@
     </head>
     <body>
         <h1>Добро пожаловать!</h1>
-        <a href="addPupil">Добавить ученика</a>
+        <a href="showAddPupil">Добавить ученика</a><br>
+        <div>
+            <h2>Список учеников!</h2>
+        </div>
     </body>
 </html>
