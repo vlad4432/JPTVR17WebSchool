@@ -13,6 +13,8 @@
     </head>
     <body>
         <h1>Добро пожаловать!</h1>
+        <a href="showlistSubject">Список предметов</a><br>
+        <hr>
         <a href="showAddPupil">Добавить ученика</a><br>
         <div>
             <h2>Список учеников!</h2>

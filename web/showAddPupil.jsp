@@ -16,7 +16,7 @@
         <form action="createPupil" method="POST">
             Имя: <input type="text" name="name"><br>
             Фамилия: <input type="text" name="surename"><br>
-            Статус:<select><option>Администратор</option><option>Учитель</option><option>Ученик</option></select>
+            Статус:<select name="status"><option>Администратор</option><option>Учитель</option><option>Ученик</option></select>
             <input type="submit" name="submit" value="Добавить"><br>
         </form>
     </body>

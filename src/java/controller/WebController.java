@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
          "/showAddPupil",
          "/createPupil",
          "/showListPupil",
+         "/showlistSubject",
 })
 public class WebController extends HttpServlet {
 @EJB PupilFacade pupilFacade;
@@ -45,6 +46,10 @@ public class WebController extends HttpServlet {
                 Pupil pupil = new Pupil(name, surename, status);
                 pupilFacade.create(pupil);
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
+                break;
+            case "/showlistSubject":
+                request.getRequestDispatcher("/showListSubject.jsp")
+                        .forward(request, response);
                 break;
                 
         }
